@@ -279,6 +279,11 @@ export default function Lobby() {
                                         value={secretInput}
                                         onChange={setSecretInput}
                                         className="gap-2"
+                                        onBlur={() => {
+                                            if (secretInput.length === 4) {
+                                                handleSetSecret();
+                                            }
+                                        }}
                                         onKeyDown={(e) => {
                                             if (e.key === "Enter") {
                                                 handleSetSecret()
@@ -355,6 +360,11 @@ export default function Lobby() {
                                                 onChange={setInputValue}
                                                 className=""
                                                 disabled={!canEnterNextAttempt}
+                                                onBlur={() => {
+                                                    if (inputValue.length === 4) {
+                                                        handleSubmit();
+                                                    }
+                                                }}
                                                 onKeyDown={(e) => {
                                                     if (e.key === "Enter") {
                                                         handleSubmit()
