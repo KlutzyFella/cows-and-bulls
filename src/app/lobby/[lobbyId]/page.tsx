@@ -70,13 +70,13 @@ export default function Lobby() {
             router.push("/")
         })
         // On new user input, update the other users' inputs state
-        newSocket.on("newUserInput", ({ userId, input }: { userId: string; input: string }) => {
+        // newSocket.on("newUserInput", ({ userId, input }: { userId: string; input: string }) => {
             // setOtherUsersInputs((prev) => {
             //     const updatedMap = new Map(prev)
             //     updatedMap.set(userId, input)
             //     return updatedMap
             // })
-        })
+        // })
 
         newSocket.on("lobbyState", (lobbyData: { userId: string; input: string | null }[]) => {
             const newMap = new Map()
