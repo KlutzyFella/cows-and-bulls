@@ -56,7 +56,8 @@ export default function Lobby() {
 
 
     useEffect(() => {
-        const newSocket = io("http://localhost:4000")
+        const BACKEND = process.env.NEXT_PUBLIC_API_URL;
+        const newSocket = io(BACKEND);
         setSocket(newSocket)
 
         // Player joins the lobby
@@ -71,11 +72,11 @@ export default function Lobby() {
         })
         // On new user input, update the other users' inputs state
         // newSocket.on("newUserInput", ({ userId, input }: { userId: string; input: string }) => {
-            // setOtherUsersInputs((prev) => {
-            //     const updatedMap = new Map(prev)
-            //     updatedMap.set(userId, input)
-            //     return updatedMap
-            // })
+        // setOtherUsersInputs((prev) => {
+        //     const updatedMap = new Map(prev)
+        //     updatedMap.set(userId, input)
+        //     return updatedMap
+        // })
         // })
 
         newSocket.on("lobbyState", (lobbyData: { userId: string; input: string | null }[]) => {
