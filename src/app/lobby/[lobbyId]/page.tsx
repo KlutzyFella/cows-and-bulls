@@ -27,8 +27,6 @@ export default function Lobby() {
     const [inputValue, setInputValue] = useState("")
     // state to store the previous input values
     const [previousAttempts, setPreviousAttempts] = useState<UserAttempt[]>([])
-    // state to store the other users' inputs
-    const [otherUsersInputs, setOtherUsersInputs] = useState<Map<string, string>>(new Map())
     // state to store if user can go ahead with next attempt
     const [canEnterNextAttempt, setCanEnterNextAttempt] = useState(true)
 
@@ -73,11 +71,11 @@ export default function Lobby() {
         })
         // On new user input, update the other users' inputs state
         newSocket.on("newUserInput", ({ userId, input }: { userId: string; input: string }) => {
-            setOtherUsersInputs((prev) => {
-                const updatedMap = new Map(prev)
-                updatedMap.set(userId, input)
-                return updatedMap
-            })
+            // setOtherUsersInputs((prev) => {
+            //     const updatedMap = new Map(prev)
+            //     updatedMap.set(userId, input)
+            //     return updatedMap
+            // })
         })
 
         newSocket.on("lobbyState", (lobbyData: { userId: string; input: string | null }[]) => {
@@ -87,7 +85,7 @@ export default function Lobby() {
                     newMap.set(userId, input)
                 }
             })
-            setOtherUsersInputs(newMap)
+            // setOtherUsersInputs(newMap)
         })
 
         // Enable next round only when both players submit their input
@@ -133,7 +131,7 @@ export default function Lobby() {
             setGameStarted(false);
             setGameOverMessage(null);
             setPreviousAttempts([]);
-            setOtherUsersInputs(new Map());
+            // setOtherUsersInputs(new Map());
             setCanEnterNextAttempt(false);
         });
 
@@ -157,11 +155,11 @@ export default function Lobby() {
             ])
 
             // Update own input in local state
-            setOtherUsersInputs((prev) => {
-                const updatedMap = new Map(prev)
-                updatedMap.set(socket.id as string, inputValue)
-                return updatedMap
-            })
+            // setOtherUsersInputs((prev) => {
+            //     const updatedMap = new Map(prev)
+            //     updatedMap.set(socket.id as string, inputValue)
+            //     return updatedMap
+            // })
 
             setInputValue("")
             setCanEnterNextAttempt(false)
