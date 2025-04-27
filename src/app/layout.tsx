@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto_Mono} from "next/font/google";
+import { Geist, Geist_Mono} from "next/font/google";
 import { Fredoka } from 'next/font/google'
 import "./globals.css";
 
@@ -12,11 +12,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const robotoMono = Roboto_Mono({
-    variable: "--font-roboto-mono",
-    subsets: ["latin"],
-  });
 
 const fredoka = Fredoka({ 
     weight: '400',
@@ -36,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="w-full h-full dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground w-full h-full`}
+        className={`${geistSans.className} ${geistMono.className} ${fredoka.className} antialiased bg-background text-foreground w-full h-full`}
       >
         {children}
       </body>

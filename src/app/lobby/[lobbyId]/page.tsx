@@ -1,6 +1,6 @@
 "use client"
 
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { io, type Socket } from "socket.io-client"
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp"
