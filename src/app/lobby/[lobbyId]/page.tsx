@@ -217,10 +217,10 @@ export default function Lobby() {
     const statusMessage = getStatusMessage()
 
     return (
-        <div className="min-h-screen bg-background p-4 md:p-8">
+        <div className="min-h-screen bg-card p-4 md:p-8">
             <div className="max-w-3xl mx-auto">
                 {/* Header */}
-                <Card className="mb-6 shadow-sm bg-card">
+                <Card className="mb-6 shadow-sm bg-background">
                     <CardHeader className="pb-3">
                         <div className="flex justify-between items-center">
                             <div>
@@ -244,7 +244,7 @@ export default function Lobby() {
                 </Card>
 
                 {/* Main Content */}
-                <Card className="shadow-sm bg-card">
+                <Card className="shadow-sm bg-background">
                     <CardContent className="pt-6">
                         {/* Game Over State */}
                         {gameOverMessage ? (
@@ -334,7 +334,7 @@ export default function Lobby() {
                                                 <InputOTPGroup className="  ">
                                                     {[...attempt.input].map((digit, j) => {
                                                         const status = attempt.statuses[j]
-                                                        let bgClass = "bg-background border-white-300 text-white-700"
+                                                        let bgClass = "bg-card border-white-300 text-white-700"
                                                         if (status === "correct") bgClass = "bg-emerald-100 border-emerald-300 text-emerald-700"
                                                         else if (status === "present") bgClass = "bg-yellow-500 border-yellow-600 text-yellow-900"
 

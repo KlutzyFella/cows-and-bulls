@@ -36,7 +36,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center px-4 py-12 gap-20">
+    <div className="min-h-screen bg-card flex flex-col items-center px-4 py-12 gap-20">
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="font-fredoka text-5xl sm:text-7xl md:text-9xl mb-4 tracking-tight">COWS AND BULLS</h1>
@@ -46,7 +46,7 @@ export default function Home() {
       </div>
 
       {/* Game Card */}
-      <Card className="w-full max-w-md bg-card">
+      <Card className="w-full max-w-md bg-background">
         <CardHeader>
           <CardTitle className="text-2xl font-semibold">Play Now</CardTitle>
           <CardDescription>Create a new game or join an existing one</CardDescription>
